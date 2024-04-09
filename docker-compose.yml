@@ -14,7 +14,7 @@ services:
       - db
     environment:
       # Django
-      - DJANGO_DEBUG=True
+      - DJANGO_DEBUG=true
       - ALLOWED_HOSTS=localhost,127.0.0.1
 
       # Database

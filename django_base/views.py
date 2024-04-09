@@ -3,6 +3,10 @@ from django.core.mail import send_mail
 
 
 def home(request):
+    return HttpResponse("Hello, World!")
+
+
+def test_email(request):
     try:
         send_mail(
             "Subject here",
