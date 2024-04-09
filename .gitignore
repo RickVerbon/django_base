@@ -1,0 +1,7 @@
+# virtual environment
+venv
+
+# mailpit
+data
+
+*/__pycache__
