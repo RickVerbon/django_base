@@ -13,8 +13,8 @@ def register_user(request):
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
             return redirect('login-view')
-    else:
-        user_form = UserRegistrationForm()
+        
+    user_form = UserRegistrationForm()
     return render(request, 'users/register.html', {'user_form': user_form})
 
 
@@ -30,8 +30,6 @@ def login_user(request):
                 return HttpResponse('Authenticated as', request.user)
             else:
                 return HttpResponse('Invalid login')
-
-    else:
-        login_form = UserLoginForm()
-
+            
+    login_form = UserLoginForm()
     return render(request, 'users/login.html', {'login_form': login_form})
