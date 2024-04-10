@@ -42,9 +42,13 @@ INSTALLED_APPS = [
 
     # Third party apps
     'debug_toolbar',
+
+    # Apps
+    'users',
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -52,8 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # Third party middleware
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
+
 
 ]
 
@@ -62,7 +66,7 @@ ROOT_URLCONF = 'django_base.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,11 +121,13 @@ EMAIL_PORT = 1025
 EMAIL_HOST_USER = 'admin'
 EMAIL_HOST_PASSWORD = 'admin'
 
+
 # Django debug toolbar settings
-INTERNAL_IPS = [
-    '127.0.0.1',
-    'localhost',
-]
+if DEBUG:
+    # DON'T USE THIS IN PRODUCTION!
+    INTERNAL_IPS = type(str('c'), (), {'__contains__': lambda *a: True})()
+
+SHOW_COLLAPSED = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

@@ -15,11 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django_base.views import test_email, home
 
 urlpatterns = [
-    path("__debug__/", include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
-    path('', home),
-    path('test_email', test_email)
+    path('users/', include('users.urls')),
+    path("__debug__/", include("debug_toolbar.urls")),
 ]

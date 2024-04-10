@@ -12,11 +12,12 @@ COPY . /app
 # Switch to non-root user for installation
 USER bwayne
 
-# Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
 
 # Add the directory to PATH
 ENV PATH="/home/bwayne/.local/bin:${PATH}"
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Make port 80 available to the world outside this container
 EXPOSE 8000
