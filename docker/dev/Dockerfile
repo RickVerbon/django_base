@@ -12,7 +12,6 @@ COPY . /app
 # Switch to non-root user for installation
 USER bwayne
 
-
 # Add the directory to PATH
 ENV PATH="/home/bwayne/.local/bin:${PATH}"
 
