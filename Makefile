@@ -7,7 +7,6 @@ factory-reset:
 	$(MAKE) clean
 	$(MAKE) build
 	$(MAKE) up
-	$(MAKE) migrations
 	$(MAKE) migrate
 
 stop:
