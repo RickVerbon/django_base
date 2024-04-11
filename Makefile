@@ -48,3 +48,6 @@ bash:
 
 test:
 	$(DOCKER_EXEC) $(APP) python3 manage.py test
+
+lint:
+	$(DOCKER_EXEC) $(APP) flake8 .
